@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "LowestAlert",
+    "tagline": "最安値自動追跡＆通知"
+  },
+  "nav": {
+    "home": "ホーム",
+    "add": "追加",
+    "alerts": "通知",
+    "settings": "設定"
+  },
+  "home": {
+    "title": "マイ商品",
+    "empty": {
+      "title": "まだ商品がありません~",
+      "subtitle": "商品のリンクを追加してください！",
+      "button": "商品を追加"
+    }
+  },
+  "addProduct": {
+    "title": "商品追加",
+    "inputPlaceholder": "商品のURLまたは名前を入力\n（쿠팡、11番街などコピー＆ペーストOK）",
+    "analyzeButton": "AIが最安値を探す",
+    "analyzing": "AI分析中...",
+    "found": "最安値を見つけました！",
+    "currentLowest": "現在の最安値",
+    "trackButton": "追跡を開始",
+    "retry": "再検索",
+    "supported": "対応モール：쿠팡、11番街、G마켓、オークション、 네이버쇼핑など"
+  },
+  "productDetail": {
+    "title": "商品詳細",
+    "priceHistory": "価格推移",
+    "recentMonths": "過去7ヶ月",
+    "allTimeLowest": "史上最安値",
+    "shopComparison": "ショップ価格比較",
+    "lowest": "最安値",
+    "setAlert": "通知設定"
+  },
+  "alerts": {
+    "title": "最近の通知",
+    "empty": {
+      "title": "まだ通知がありません",
+      "subtitle": "値下げしたらお知らせします！"
+    },
+    "priceDown": "値下げ！",
+    "checkNow": "今すぐ確認"
+  },
+  "settings": {
+    "title": "設定",
+    "notification": {
+      "title": "通知設定",
+      "push": "プッシュ通知",
+      "pushDesc": "アプリ通知で受け取る",
+      "sms": "SMS通知",
+      "smsDesc": "SMSで受け取る",
+      "telegram": "テレグラム",
+      "telegramDesc": "テレグラムで受け取る",
+      "connectTelegram": "テレグラムBotを接続"
+    },
+    "priceDrop": {
+      "title": "値下げ基準",
+      "description": "設定した割合以上値下げすると通知します",
+      "options": {
+        "5": "5%以上値下げ時",
+        "10": "10%以上値下げ時",
+        "15": "15%以上値下げ時",
+        "20": "20%以上値下げ時"
+      }
+    },
+    "theme": {
+      "title": "アプリテーマ",
+      "light": "ライト",
+      "dark": "ダーク",
+      "system": "システム"
+    },
+    "account": {
+      "title": "アカウント",
+      "profile": "プロフィール設定",
+      "deleteData": "データ削除",
+      "logout": "ログアウト"
+    },
+    "save": "設定を保存",
+    "version": "LowestAlert v1.0.0"
+  },
+  "onboarding": {
+    "title": "最安値をお探しします",
+    "subtitle": "商品を追加すると\n最美安値をおしみしません",
+    "start": "始める"
+  },
+  "common": {
+    "search": "検索",
+    "addProduct": "商品追加",
+    "loading": "読み込み中..."
+  }
+}

@@ -1,0 +1,121 @@
+version: '3.8'
+
+# ============================================
+# 🚀 스타트업 최적화 Docker Compose
+# 목표: 빠른 개발 + 저비용 운영 + 쉬운 확장
+# ============================================
+
+services:
+  # 🔴 Redis - 캐시 & 세션 저장소
+  redis:
+    image: redis:7-alpine
+    container_name: lowestalert-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    # maxmemory: 256MB로 제한 (묣로티어 서버 대비)
+    # maxmemory-policy: 메모리 부족 시 오래된 데이터 삭제
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  # 🗄️ PostgreSQL - 메인 데이터베이스 (단계 2에서 추가)
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: lowestalert-db
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_USER: ${DB_USER:-postgres}
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+  #     POSTGRES_DB: ${DB_NAME:-lowestalert}
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # 🔵 Backend API Server
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: lowestalert-api
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CRAWLER_MODE=production
+      - LOG_LEVEL=info
+      # - DATABASE_URL=postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-password}@postgres:5432/${DB_NAME:-lowestalert}
+    ports:
+      - "3001:3001"
+    depends_on:
+      redis:
+        condition: service_healthy
+      # postgres:
+      #   condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+        reservations:
+          memory: 256M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 🟨 Frontend (정적 파일 서빙)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: lowestalert-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - backend
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.25'
+
+  # 📊 모니터링 (선택사항 - 단계 3)
+  # prometheus:
+  #   image: prom/prometheus
+  #   container_name: lowestalert-prometheus
+  #   volumes:
+  #     - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   ports:
+  #     - "9090:9090"
+
+  # grafana:
+  #   image: grafana/grafana
+  #   container_name: lowestalert-grafana
+  #   ports:
+  #     - "3000:3000"
+
+volumes:
+  redis_data:
+  # postgres_data:
+
+# 네트워크 설정 (보안)
+networks:
+  default:
+    driver: bridge

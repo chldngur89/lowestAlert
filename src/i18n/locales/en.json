@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "LowestAlert",
+    "tagline": "Automatic Price Tracking & Alerts"
+  },
+  "nav": {
+    "home": "Home",
+    "add": "Add",
+    "alerts": "Alerts",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "My Tracked Products",
+    "empty": {
+      "title": "No tracked products yet~",
+      "subtitle": "Add a product link to get started!",
+      "button": "Add Product"
+    }
+  },
+  "addProduct": {
+    "title": "Add Product",
+    "inputPlaceholder": "Enter product URL or name\n(Copy & paste from Coupang, 11st, etc.)",
+    "analyzeButton": "Find Lowest Price with AI",
+    "analyzing": "AI is analyzing...",
+    "found": "Found lowest price!",
+    "currentLowest": "Current Lowest",
+    "trackButton": "Start Tracking",
+    "retry": "Search Again",
+    "supported": "Supported: Coupang, 11st, Gmarket, Auction, Naver Shopping & more"
+  },
+  "productDetail": {
+    "title": "Product Details",
+    "priceHistory": "Price History",
+    "recentMonths": "Last 7 months",
+    "allTimeLowest": "All-Time Lowest",
+    "shopComparison": "Shop Price Comparison",
+    "lowest": "Lowest",
+    "setAlert": "Set Alert"
+  },
+  "alerts": {
+    "title": "Recent Alerts",
+    "empty": {
+      "title": "No alerts yet",
+      "subtitle": "We'll notify you when prices drop!"
+    },
+    "priceDown": "Price DOWN!",
+    "checkNow": "Check Now"
+  },
+  "settings": {
+    "title": "Settings",
+    "notification": {
+      "title": "Notification Settings",
+      "push": "Push Notifications",
+      "pushDesc": "Receive via app notifications",
+      "sms": "SMS Notifications",
+      "smsDesc": "Receive via text message",
+      "telegram": "Telegram",
+      "telegramDesc": "Receive via Telegram",
+      "connectTelegram": "Connect Telegram Bot"
+    },
+    "priceDrop": {
+      "title": "Price Drop Threshold",
+      "description": "Get notified when price drops by this percentage",
+      "options": {
+        "5": "5% or more",
+        "10": "10% or more",
+        "15": "15% or more",
+        "20": "20% or more"
+      }
+    },
+    "theme": {
+      "title": "App Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "account": {
+      "title": "Account",
+      "profile": "Profile Settings",
+      "deleteData": "Delete Data",
+      "logout": "Logout"
+    },
+    "save": "Save Settings",
+    "version": "LowestAlert v1.0.0"
+  },
+  "onboarding": {
+    "title": "We find the lowest prices for you",
+    "subtitle": "Add any product and we'll\nnotify you of the best deals",
+    "start": "Get Started"
+  },
+  "common": {
+    "search": "Search",
+    "addProduct": "Add Product",
+    "loading": "Loading..."
+  }
+}

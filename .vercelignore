@@ -1,0 +1,12 @@
+server
+dist
+node_modules
+*.log
+Dockerfile.dev
+docker-compose.yml
+docker-compose.prod.yml
+DOCKER-STRATEGY.md
+DOCKER-SIZE-GUIDE.md
+REDIS-GUIDE.md
+REDIS-PRACTICE.md
+PHASE2-GUIDE.md

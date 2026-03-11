@@ -1,0 +1,38 @@
+# FROM node:20-alpine
+
+# WORKDIR /app
+
+# # 빌드 의존성 설치
+# RUN apk add --no-cache python3 make g++
+
+# # Puppeteer용 Chrome 설치
+# RUN apk add --no-cache \
+#     chromium \
+#     nss \
+#     freetype \
+#     harfbuzz \
+#     ca-certificates \
+#     ttf-freefont
+
+# ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+# ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# # 의존성 캐싱을 위한 레이어 분리
+# COPY package*.json ./
+# RUN npm ci --only=production
+
+# # 소스 코드 복사
+# COPY . .
+
+# # 비특권 사용자 생성 (보안)
+# RUN addgroup -g 1001 -S nodejs
+# RUN adduser -S nextjs -u 1001
+
+# USER nextjs
+
+# EXPOSE 3001
+
+# ENV NODE_ENV=production
+# ENV PORT=3001
+
+# CMD ["node", "src/index.js"]

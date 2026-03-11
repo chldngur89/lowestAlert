@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id            Int             @id @default(autoincrement())
+  name          String
+  shop          String
+  currentPrice  Int
+  originalPrice Int
+  change        Float
+  isLowest      Boolean         @default(false)
+  image         String
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  userId        String?         // Firebase UID
+  priceHistory  PriceHistory[]
+  alerts        Alert[]
+  
+  @@index([userId])
+  @@index([name])
+}
+
+model PriceHistory {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  price     Int
+  shop      String
+  timestamp DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([productId])
+  @@index([timestamp])
+}
+
+model Alert {
+  id          Int      @id @default(autoincrement())
+  productId   Int
+  productName String
+  image       String
+  oldPrice    Int
+  newPrice    Int
+  discount    Float
+  shop        String
+  timestamp   DateTime @default(now())
+  isRead      Boolean  @default(false)
+  userId      String?  // Firebase UID
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([isRead])
+}
+
+model User {
+  id            String   @id // Firebase UID
+  email         String   @unique
+  name          String?
+  fcmToken      String?  // Firebase Cloud Messaging Token
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}

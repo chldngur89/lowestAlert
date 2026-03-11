@@ -1,0 +1,96 @@
+{
+  "app": {
+    "name": "LowestAlert",
+    "tagline": "최저가 자동 추적 & 알림"
+  },
+  "nav": {
+    "home": "홈",
+    "add": "추가",
+    "alerts": "알림",
+    "settings": "설정"
+  },
+  "home": {
+    "title": "내 관심 상품",
+    "empty": {
+      "title": "아직 관심 상품이 없어요~",
+      "subtitle": "상품 링크를 추가해보세요!",
+      "button": "상품 추가하기"
+    }
+  },
+  "addProduct": {
+    "title": "상품 추가",
+    "inputPlaceholder": "상품 URL이나 이름을 입력하세요\n(쿠팡, 11번가 등 복사 붙여넣기 OK)",
+    "analyzeButton": "AI가 최저가 찾아드릴게요",
+    "analyzing": "AI가 분석중...",
+    "found": "최저가를 찾았어요!",
+    "currentLowest": "현재 최저가",
+    "trackButton": "이 상품 추적 시작",
+    "retry": "다시 검색하기",
+    "supported": "지원 쇼핑몰: 쿠팡, 11번가, G마켓, 옥션, 네이버쇼핑 등"
+  },
+  "productDetail": {
+    "title": "상품 상세",
+    "priceHistory": "가격 변동 추이",
+    "recentMonths": "최근 7개월",
+    "allTimeLowest": "역대 최저가",
+    "shopComparison": "쇼핑몰 가격 비교",
+    "lowest": "최저가",
+    "setAlert": "알림 설정"
+  },
+  "alerts": {
+    "title": "최근 알림",
+    "empty": {
+      "title": "아직 알림이 없어요",
+      "subtitle": "가격이 하락하면 알려드릴게요!"
+    },
+    "priceDown": "가격 DOWN!",
+    "checkNow": "지금 확인하기"
+  },
+  "settings": {
+    "title": "설정",
+    "notification": {
+      "title": "알림 설정",
+      "push": "푸시 알림",
+      "pushDesc": "앱 알림으로 받기",
+      "sms": "SMS 문자 알림",
+      "smsDesc": "문자 메시지로 받기",
+      "telegram": "텔레그램 알림",
+      "telegramDesc": "텔레그램으로 받기",
+      "connectTelegram": "텔레그램 봇 연결하기"
+    },
+    "priceDrop": {
+      "title": "가격 하락 기준",
+      "description": "설정한 비율 이상 가격이 떨어지면 알림을 보냅니다",
+      "options": {
+        "5": "5% 이상 하락시",
+        "10": "10% 이상 하락시",
+        "15": "15% 이상 하락시",
+        "20": "20% 이상 하락시"
+      }
+    },
+    "theme": {
+      "title": "앱 테마",
+      "light": "라이트",
+      "dark": "다크",
+      "system": "시스템"
+    },
+    "account": {
+      "title": "계정",
+      "profile": "프로필 설정",
+      "deleteData": "데이터 삭제",
+      "logout": "로그아웃"
+    },
+    "save": "설정 저장",
+    "version": "LowestAlert v1.0.0"
+  },
+  "onboarding": {
+    "title": "최저가를 찾아드려요",
+    "subtitle": "원하는 상품을 추가하면\n최저가를 알려드려요",
+    "start": "시작하기"
+  },
+  "common": {
+    "search": "검색",
+    "addProduct": "상품 추가",
+    "loading": "로딩중..."
+  }
+}
